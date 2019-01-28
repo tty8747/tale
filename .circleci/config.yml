@@ -17,4 +17,4 @@ jobs:
           command: pwd
       - run:
           name: mvn
-          command: mvn
+          command: wich mvn
