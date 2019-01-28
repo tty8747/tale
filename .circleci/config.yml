@@ -16,5 +16,5 @@ jobs:
           name: run pwd
           command: pwd
       - run:
-          name: run ls -la
-          command: ls -la
+          name: mvn
+          command: mvn
