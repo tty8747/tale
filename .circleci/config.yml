@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-#   working_directory: ~/circleci-demo-java-spring 
+    working_directory: ~/tale
 
     docker: 
       - image: circleci/openjdk:8-jdk-browsers 
@@ -13,5 +13,8 @@ jobs:
           name: HI!
           command: echo "Hello, World!"
       - run:
-          name: Print current time
-          command: date
+          name: run pwd
+          command: pwd
+      - run:
+          name: run ls -la
+          command: ls -la
