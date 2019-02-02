@@ -34,6 +34,10 @@ jobs:
           command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM ./target/dist
 
       - run:
+          name: pwd
+          command: pwd
+
+      - run:
           name: ls -al
           command: ls -ahl
 
