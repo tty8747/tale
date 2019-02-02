@@ -24,10 +24,14 @@ jobs:
       
       - store_test_results:
           path: target/surefire-reports
+
+      - run:
+          name: rm zip and tar.gz
+          command: rm -f ./target/dist/tale.tar.gz ./target/dist/tale.zip
       
       - run:
           name: build deb package
-          command: echo $CIRCLE_BUILD_NUM # ls -alh ./target/dist
+          command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM ./target/dist
 
 #     - run:
 #         name: build deb package
