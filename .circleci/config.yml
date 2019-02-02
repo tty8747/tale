@@ -9,15 +9,25 @@ jobs:
     steps: 
 
       - checkout
+
       - run:
           name: HI!
           command: echo "Hi, World!"
-      - run:
-          name: run pwd
-          command: pwd
-      - run:
-          name: mvn
-          command: which mvn
-      - run:
-          name: mvn
-          command: mvn package
+
+      - restore_cache: 
+          key: tale-{{ checksum "pom.xml" }}
+      
+      - run: mvn dependency:go-offline
+      
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: tale-{{ checksum "pom.xml" }}
+      
+      - run: mvn package
+      
+      - store_test_results:
+          path: target/surefire-reports
+      
+      - store_artifacts:
+          path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
