@@ -38,6 +38,6 @@ sudo chmod 664 $dpath/etc/systemd/system/tale.service
 find $dpath -type f -print0 | xargs -0 md5sum > $dpath/DEBIAN/md5sums
 
 # fakeroot dpkg-deb --build $pathbuild
-dpkg-deb --build $pathbuild
+dpkg-deb --build $dpath
 
 exit 0
