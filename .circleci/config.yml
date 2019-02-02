@@ -30,8 +30,8 @@ jobs:
           command: tar -C ~/tale/target/dist/ -zxvf ~/tale/target/dist/tale.tar.gz
 
       - run:
-          name: find
-          command: find ./ -name "*.jar"
+          name: ls
+          command: ls -alh ./target/dist
 
 #     - run:
 #         name: build deb package
