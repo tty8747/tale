@@ -26,16 +26,12 @@ jobs:
           path: target/surefire-reports
       
       - run:
-          name: tar 
-          command: tar -C ~/tale/target/dist/ -zxvf ~/tale/target/dist/tale.tar.gz
-
-      - run:
-          name: ls
-          command: ls -alh ./target/dist
+          name: build deb package
+          command: echo $CIRCLE_BUILD_NUM # ls -alh ./target/dist
 
 #     - run:
 #         name: build deb package
-#         command: ~/tale/.ci/build_deb.sh
+#         command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM
 
 #     - run:
 #         name: ls
