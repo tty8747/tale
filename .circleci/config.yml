@@ -34,5 +34,9 @@ jobs:
           command: tar -C ~/tale/target/dist/ -zxvf ~/tale/target/dist/tale.tar.gz
 
       - run:
+          name: build deb package
+          command: ~/tale/.ci/build_deb.sh
+
+      - run:
           name: ls
           command: ls -al ~/tale/target/dist
