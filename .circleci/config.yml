@@ -33,4 +33,4 @@ jobs:
           path: ~/tale/tale.jar
       - run:
           name: ls
-          command: ls -al ~/tale
+          command: ls -al ~/tale/target/dist
