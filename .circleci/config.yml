@@ -29,8 +29,10 @@ jobs:
       - store_test_results:
           path: target/surefire-reports
       
-      - store_artifacts:
-          path: ~/tale/tale.jar
+      - run:
+          name: tar 
+          command: tar -C ~/tale/target/dist/ -zxvf ~/tale/target/dist/tale.tar.gz
+
       - run:
           name: ls
           command: ls -al ~/tale/target/dist
