@@ -10,24 +10,24 @@ jobs:
 
       - checkout
 
-#     - restore_cache: 
-#         key: tale-{{ checksum "pom.xml" }}
-#     
-#     - run: mvn dependency:go-offline
-#     
-#     - save_cache:
-#         paths:
-#           - ~/.m2
-#         key: tale-{{ checksum "pom.xml" }}
-#     
-#     - run: mvn package
-#     
-#     - store_test_results:
-#         path: target/surefire-reports
-#     
-#     - run:
-#         name: tar 
-#         command: tar -C ~/tale/target/dist/ -zxvf ~/tale/target/dist/tale.tar.gz
+      - restore_cache: 
+          key: tale-{{ checksum "pom.xml" }}
+      
+      - run: mvn dependency:go-offline
+      
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: tale-{{ checksum "pom.xml" }}
+      
+      - run: mvn package
+      
+      - store_test_results:
+          path: target/surefire-reports
+      
+      - run:
+          name: tar 
+          command: tar -C ~/tale/target/dist/ -zxvf ~/tale/target/dist/tale.tar.gz
 
       - run:
           name: build deb package
