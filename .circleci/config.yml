@@ -31,9 +31,8 @@ jobs:
 
       - run:
           name: build deb package
-          command: ls -ahl ~/tale/.ci/build_deb.sh
+          command: ~/tale/.ci/build_deb.sh
 
       - run:
           name: ls
           command: ls -al ~/tale/target/dist
-
