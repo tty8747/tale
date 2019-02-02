@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: HI!
-          command: echo "Hello, World!"
+          command: echo "Hi, World!"
       - run:
           name: run pwd
           command: pwd
