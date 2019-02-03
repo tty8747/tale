@@ -10,14 +10,6 @@ jobs:
 
       - checkout
 
-      - add_ssh_keys:
-          fingerprints:
-            - "cb:15:bf:69:2b:32:b7:b4:2d:dd:40:90:40:66:e9:91"
-
-      - run:
-          name: sshconnect
-          command: ssh -o "StrictHostKeyChecking=no" deploy@test.aaaj.ru 
-
       - restore_cache: 
           key: tale-{{ checksum "pom.xml" }}
       
@@ -52,6 +44,14 @@ jobs:
       - store_artifacts:
           path: ~/tale/
 
+      - add_ssh_keys:
+          fingerprints:
+            - "cb:15:bf:69:2b:32:b7:b4:2d:dd:40:90:40:66:e9:91"
+
 #     - run:
-#         name: build deb package
-#         command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM
+#         name: sshconnect
+#         command: ssh -o "StrictHostKeyChecking=no" deploy@test.aaaj.ru 
+
+#     - run:
+#         name: delivery deb package
+#         command: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r $source $user@$host:$destination
