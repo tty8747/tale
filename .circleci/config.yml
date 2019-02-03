@@ -21,14 +21,13 @@ jobs:
           key: tale-{{ checksum "pom.xml" }}
       
       - run: mvn package
+
+      - store_artifacts:
+          path: ~/tale/
       
       - store_test_results:
           path: target/surefire-reports
 
-#     - run:
-#         name: rm zip and tar.gz
-#         command: rm -f ./target/dist/tale.tar.gz ./target/dist/tale.zip
-      
       - run:
           name: build deb package
           command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM ./target/tale.jar
@@ -40,9 +39,6 @@ jobs:
       - run:
           name: ls -al
           command: ls -ahl
-
-      - store_artifacts:
-          path: ~/tale/
 
       - add_ssh_keys:
           fingerprints:
