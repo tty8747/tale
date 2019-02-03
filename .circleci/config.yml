@@ -5,10 +5,15 @@ jobs:
 
     docker: 
       - image: circleci/openjdk:9-jdk-browsers 
+      - image: ansible/ansible:ubuntu1604
 
     steps: 
 
       - checkout
+
+      - run:
+          name: ansible test
+          command: ansible -m ping all -i .ci/ansible/inventory/prod
 
       - restore_cache: 
           key: tale-{{ checksum "pom.xml" }}
