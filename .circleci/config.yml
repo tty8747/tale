@@ -8,7 +8,7 @@ jobs:
       - image: williamyeh/ansible:ubuntu16.04
         environment:
           ANSIBLE_HOST_KEY_CHECKING=False
-#
+ 
     steps:
 
       - checkout
