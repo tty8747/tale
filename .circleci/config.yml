@@ -16,7 +16,7 @@ jobs:
 
       - run:
           name: sshconnect
-          command: ssh deploy@test.aaaj.ru 
+          command: ssh -o UserKnownHostsFile=/dev/null deploy@test.aaaj.ru 
 
       - restore_cache: 
           key: tale-{{ checksum "pom.xml" }}
