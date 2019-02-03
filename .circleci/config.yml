@@ -6,6 +6,8 @@ jobs:
     docker: 
      #- image: circleci/openjdk:9-jdk-browsers 
       - image: williamyeh/ansible:debian9
+        environment:
+          ANSIBLE_HOST_KEY_CHECKING=False
 
     steps: 
 
