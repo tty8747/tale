@@ -10,6 +10,14 @@ jobs:
 
       - checkout
 
+      - add_ssh_keys:
+          fingerprints:
+            - "cb:15:bf:69:2b:32:b7:b4:2d:dd:40:90:40:66:e9:91"
+
+      - run:
+        name: ssh
+        command: ssh test.aaaj.ru
+
       - restore_cache: 
           key: tale-{{ checksum "pom.xml" }}
       
@@ -51,3 +59,11 @@ jobs:
       - run:
         name: ls
         command: ls -al ~/tale/
+
+      - add_ssh_keys:
+          fingerprints:
+            - "cb:15:bf:69:2b:32:b7:b4:2d:dd:40:90:40:66:e9:91"
+
+      - run:
+        name: ssh
+        command: ssh test.aaaj.ru
