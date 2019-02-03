@@ -29,12 +29,12 @@ jobs:
           path: target/surefire-reports
 
       - run:
-          name: build deb package
-          command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM ./target/tale.jar
+          name: tar-x
+          command: mkdir -p ~/tale/target/dist/tar && tar -C ~/tale/target/dist/tar -zxvf ~/tale/target/dist/tale.tar.gz
 
       - run:
-          name: pwd
-          command: pwd
+          name: build deb package
+          command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM ~/tale/target/dist/tar
 
       - run:
           name: ls -al
