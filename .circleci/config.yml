@@ -52,6 +52,6 @@ jobs:
 #         name: sshconnect
 #         command: ssh -o "StrictHostKeyChecking=no" deploy@test.aaaj.ru 
 
-#     - run:
-#         name: delivery deb package
-#         command: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r $source $user@$host:$destination
+      - run:
+          name: delivery deb package
+          command: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null tale.deb  deploy@test.aaaj.ru:~
