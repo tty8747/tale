@@ -14,9 +14,12 @@ jobs:
       - checkout
 
       - run:
-          name: ansible test
-          command: ansible -m ping all -i .ci/ansible/inventory/prod
+          name: pwd
+          command: pwd
 
+      - run:
+          name: ansible test
+          command: ansible -m ping all -i ~/tale/.ci/ansible/inventory/prod
 
   build:
 
@@ -28,10 +31,6 @@ jobs:
     steps: 
 
       - checkout
-
-#     - run:
-#         name: ansible test
-#         command: ansible -m ping all -i .ci/ansible/inventory/prod
 
       - restore_cache: 
           key: tale-{{ checksum "pom.xml" }}
@@ -78,4 +77,4 @@ workflows:
   prov_and_build:
     jobs:
       - provision
-      - build
+     #- build
