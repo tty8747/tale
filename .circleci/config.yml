@@ -13,6 +13,10 @@ jobs:
 
       - checkout
 
+      - add_ssh_keys:
+          fingerprints:
+            - "cb:15:bf:69:2b:32:b7:b4:2d:dd:40:90:40:66:e9:91"
+
       - run:
           name: pwd
           command: pwd
@@ -73,9 +77,7 @@ jobs:
       - run:
           name: install deb package
           command: ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null deploy@test.aaaj.ru "sudo dpkg -i tale.deb && sudo apt-get install -f"
-      - run:
-          name: ansible test
-          command: ansible -m ping all -i .ci/ansible/inventory/prod
+
 workflows:
   version: 2
   prov_and_build:
