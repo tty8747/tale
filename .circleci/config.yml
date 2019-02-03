@@ -55,7 +55,3 @@ jobs:
 #     - run:
 #         name: build deb package
 #         command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM
-
-      - run:
-        name: ls
-        command: ls -al ~/tale/
