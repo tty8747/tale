@@ -16,7 +16,7 @@ jobs:
 
       - run:
         name: ssh
-        command: ssh test.aaaj.ru -l deploy
+        command: ssh deploy@test.aaaj.ru 
 
       - restore_cache: 
           key: tale-{{ checksum "pom.xml" }}
