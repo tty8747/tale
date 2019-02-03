@@ -19,7 +19,7 @@ jobs:
 
       - run:
           name: ls
-          command: ls -ahl
+          command: ls -ahl ~/tale/.ci/ansible/inventory/prod
 
       - run:
           name: ansible test
