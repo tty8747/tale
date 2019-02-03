@@ -9,6 +9,8 @@ jobs:
         environment:
           ANSIBLE_HOST_KEY_CHECKING=False
 
+    steps:
+
       - checkout
 
       - run:
