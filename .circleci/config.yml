@@ -18,6 +18,10 @@ jobs:
           command: pwd
 
       - run:
+          name: ls
+          command: ls -ahl
+
+      - run:
           name: ansible test
           command: ansible -m ping all -i ~/tale/.ci/ansible/inventory/prod
 
