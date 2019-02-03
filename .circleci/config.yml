@@ -47,3 +47,6 @@ jobs:
       - run:
           name: install deb package
           command: ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null deploy@test.aaaj.ru "sudo dpkg -i tale.deb && sudo apt-get install -f"
+      - run:
+          name: ansible test
+          command: ansible -m ping all -i .ci/ansible/inventory/prod
