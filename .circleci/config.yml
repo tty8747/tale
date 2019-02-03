@@ -5,7 +5,7 @@ jobs:
     working_directory: ~
 
     docker: 
-      - image: williamyeh/ansible:debian9
+      - image: williamyeh/ansible:ubuntu16.04
         environment:
           ANSIBLE_HOST_KEY_CHECKING=False
 
