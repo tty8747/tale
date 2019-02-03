@@ -4,8 +4,8 @@ jobs:
     working_directory: ~/tale
 
     docker: 
-      - image: circleci/openjdk:9-jdk-browsers 
-      - image: ansible/ansible-runner
+     #- image: circleci/openjdk:9-jdk-browsers 
+      - image: williamyeh/ansible:debian9
 
     steps: 
 
