@@ -1,13 +1,27 @@
 version: 2
 jobs:
-  build:
-    working_directory: ~/tale
+  provision:
+
+    working_directory: ~
 
     docker: 
-     #- image: circleci/openjdk:9-jdk-browsers 
       - image: williamyeh/ansible:debian9
         environment:
           ANSIBLE_HOST_KEY_CHECKING=False
+
+      - checkout
+
+      - run:
+          name: ansible test
+          command: ansible -m ping all -i .ci/ansible/inventory/prod
+
+
+  build:
+
+    working_directory: ~/tale
+
+    docker: 
+      - image: circleci/openjdk:9-jdk-browsers 
 
     steps: 
 
@@ -57,3 +71,9 @@ jobs:
       - run:
           name: ansible test
           command: ansible -m ping all -i .ci/ansible/inventory/prod
+workflows:
+  version: 2
+  prov_and_build:
+    jobs:
+      - provision
+      - build
