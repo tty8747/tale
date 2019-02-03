@@ -27,7 +27,7 @@ Description=tale blog
 After=network.target
 [Service]
 Type=simple
-ExecStart=/bin/bash -c "/usr/bin/java -jar /opt/tale/tale-latest.jar"
+ExecStart=/bin/bash -c "/usr/bin/java -jar /opt/tale/tale.jar"
 Restart=always
 [Install]
 WantedBy=multi-user.target
