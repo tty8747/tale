@@ -18,7 +18,7 @@ echo -e "#!/bin/bash\nsystemctl daemon-reload\nsystemctl enable tale\nsystemctl 
 chmod 0755 $dpath/DEBIAN/postinst
 
 # rsync -a --exclude tale.tar.gz tale.zip tale-p/ $dpath/opt/tale
-cp -r $pathbuild $dpath/opt/tale/
+cp -r $pathbuild/* $dpath/opt/tale/
 
 cat << EOF > $dpath/etc/systemd/system/tale.service
 [Unit]
@@ -26,7 +26,7 @@ Description=tale blog
 After=network.target
 [Service]
 Type=simple
-ExecStart=/bin/bash -c "/usr/bin/java -jar /opt/tale/tale.jar"
+ExecStart=/bin/bash -c "/usr/bin/java -jar /opt/tale/tale-latest.jar"
 Restart=always
 [Install]
 WantedBy=multi-user.target
