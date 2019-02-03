@@ -1,19 +1,29 @@
 version: 2
 jobs:
+
   build:
-    working_directory: ~/tale
-
+    working_directory: ~
+    
     docker: 
-      - image: circleci/openjdk:9-jdk-browsers 
       - image: williamyeh/ansible:debian9
-
-    steps: 
-
+    
+    steps:
+    
       - checkout
 
       - run:
           name: ansible test
           command: ansible -m ping all -i .ci/ansible/inventory/prod
+
+  build:
+    working_directory: ~/tale
+
+    docker: 
+      - image: circleci/openjdk:9-jdk-browsers 
+
+    steps: 
+
+      - checkout
 
       - restore_cache: 
           key: tale-{{ checksum "pom.xml" }}
