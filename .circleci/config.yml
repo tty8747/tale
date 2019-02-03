@@ -15,7 +15,7 @@ jobs:
 
       - run:
           name: ansible test
-          command: ansible -m ping all -i .ci/ansible/inventory/prod
+          command: ansible-playbook --version # ansible -m ping all -i .ci/ansible/inventory/prod
 
 
   build:
