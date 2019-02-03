@@ -41,10 +41,13 @@ jobs:
           name: ls -al
           command: ls -ahl
 
+      - store_artifacts:
+          path: ~/tale/
+
 #     - run:
 #         name: build deb package
 #         command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM
 
-#     - run:
-#         name: ls
-#         command: ls -al ~/tale/target/dist
+        - run:
+          name: ls
+          command: ls -al ~/tale/
