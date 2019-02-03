@@ -30,15 +30,11 @@ jobs:
 
       - run:
           name: tar-x
-          command: mkdir -p ~/tale/target/dist/tar && tar -C ~/tale/target/dist/tar -zxvf ~/tale/target/dist/tale.tar.gz
+          command: mkdir -p ~/tale-dist && tar -C ~/tale-dist -zxvf ~/tale/target/dist/tale.tar.gz
 
       - run:
           name: build deb package
-          command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM ~/tale/target/dist/tar
-
-      - run:
-          name: ls -al
-          command: ls -ahl
+          command: ~/tale/.ci/build_deb.sh $CIRCLE_BUILD_NUM ~/tale-dist
 
       - add_ssh_keys:
           fingerprints:
