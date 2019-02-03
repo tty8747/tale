@@ -2,7 +2,7 @@ version: 2
 jobs:
   provision:
 
-    working_directory: ~
+    working_directory: ~/tale
 
     docker: 
       - image: williamyeh/ansible:ubuntu16.04
