@@ -27,7 +27,7 @@ jobs:
 
       - run:
           name: ansible test
-          command: ansible -m ping all -i ~/tale/.ci/ansible/inventory/prod
+          command: ansible -m ping all -i ~/tale/.ci/ansible/inventory/prod -k deploy
 
   build:
 
