@@ -18,7 +18,8 @@ echo -e "#!/bin/bash\nsystemctl daemon-reload\nsystemctl enable tale\nsystemctl 
 chmod 0755 $dpath/DEBIAN/postinst
 
 # rsync -a --exclude tale.tar.gz tale.zip tale-p/ $dpath/opt/tale
-cp -r $pathbuild $dpath/opt/tale
+#cp -r $pathbuild $dpath/opt/tale/
+cp $pathbuild $dpath/opt/tale/
 
 cat << EOF > $dpath/etc/systemd/system/tale.service
 [Unit]
@@ -37,7 +38,7 @@ sudo chmod 664 $dpath/etc/systemd/system/tale.service
 # md5deep -r $dpath > $dpath/DEBIAN/md5sums
 find $dpath -type f -print0 | xargs -0 md5sum > $dpath/DEBIAN/md5sums
 
-# fakeroot dpkg-deb --build $pathbuild
+# fakeroot dpkg-deb --build $dpath
 dpkg-deb --build $dpath
 
 exit 0
